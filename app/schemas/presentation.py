@@ -22,3 +22,4 @@ class BulletSlide(BaseModel):
 
 class Presentation(BaseModel):
     slides: List[TitleSlide | BulletSlide]
+    filename: Optional[str] = "presentation.pptx"
