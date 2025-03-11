@@ -1,0 +1,246 @@
+openapi: 3.1.0
+info:
+  title: PPTX Generation API
+  description: API for generating PowerPoint presentations from structured slide data.
+  version: 1.0.0
+servers:
+  - url: https://pptx-api-node.fly.dev
+    description: Production server
+paths:
+  /generate-pptx:
+    post:
+      operationId: generatePptx
+      summary: Generate a PowerPoint presentation
+      description: |
+        Generates a PowerPoint presentation based on the provided slide data and returns a download URL.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slides:
+                  type: array
+                  description: List of slides to include in the presentation.
+                  items:
+                    oneOf:
+                      - $ref: "#/components/schemas/TitleSlide"
+                      - $ref: "#/components/schemas/BulletSlide"
+                      - $ref: "#/components/schemas/ImageSlide"
+                      - $ref: "#/components/schemas/TableSlide"
+                      - $ref: "#/components/schemas/SplitSlide"
+                filename:
+                  type: string
+                  description: Optional filename for the generated presentation.
+                  default: presentation.pptx
+      responses:
+        "200":
+          description: Successfully generated PowerPoint presentation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  presentation_id:
+                    type: string
+                    description: Unique identifier for the generated presentation.
+                  download_url:
+                    type: string
+                    format: uri
+                    description: URL to download the generated presentation.
+                  filename:
+                    type: string
+                    description: Filename of the generated presentation.
+                  expires_in_hours:
+                    type: integer
+                    description: Number of hours until the download link expires.
+components:
+  schemas:
+    TitleSlide:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - title
+        title:
+          type: string
+        subtitle:
+          type: string
+          nullable: true
+      required:
+        - type
+        - title
+    BulletSlide:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - bullet
+        title:
+          type: string
+          nullable: true
+        points:
+          type: array
+          items:
+            $ref: "#/components/schemas/BulletPointLevel1"
+      required:
+        - type
+    BulletPointLevel1:
+      type: object
+      properties:
+        text:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: "#/components/schemas/BulletPointLevel2"
+          maxItems: 10
+      required:
+        - text
+    BulletPointLevel2:
+      type: object
+      properties:
+        text:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: "#/components/schemas/BulletPointLevel3"
+          maxItems: 10
+      required:
+        - text
+    BulletPointLevel3:
+      type: object
+      properties:
+        text:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: "#/components/schemas/BulletPointLevel4"
+          maxItems: 10
+      required:
+        - text
+    BulletPointLevel4:
+      type: object
+      properties:
+        text:
+          type: string
+        children:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+            required:
+              - text
+          maxItems: 10
+      required:
+        - text
+    ImageSlide:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - image
+        title:
+          type: string
+          nullable: true
+        url:
+          type: string
+          format: uri
+        alt:
+          type: string
+          nullable: true
+      required:
+        - type
+        - url
+    TableSlide:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - table
+        title:
+          type: string
+          nullable: true
+        headers:
+          type: array
+          items:
+            type: string
+        rows:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+      required:
+        - type
+        - headers
+        - rows
+    SplitSlide:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - split
+        title:
+          type: string
+          nullable: true
+        layout:
+          type: string
+          enum:
+            - left-right
+        sections:
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            $ref: "#/components/schemas/ContentSection"
+      required:
+        - type
+        - layout
+        - sections
+    ContentSection:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - bullet
+            - image
+            - table
+        points:
+          type: array
+          items:
+            $ref: "#/components/schemas/BulletPointLevel1"
+          nullable: true
+        url:
+          type: string
+          format: uri
+          nullable: true
+        alt:
+          type: string
+          nullable: true
+        headers:
+          type: array
+          items:
+            type: string
+          nullable: true
+        rows:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          nullable: true
+      required:
+        - type
+

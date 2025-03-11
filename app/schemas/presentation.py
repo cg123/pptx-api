@@ -1,5 +1,6 @@
-from typing import List, Optional, Literal, Union, Any
-from pydantic import BaseModel, Field, HttpUrl
+from typing import List, Literal, Optional, Union
+
+from pydantic import BaseModel, Field
 
 
 class TitleSlide(BaseModel):
@@ -35,15 +36,16 @@ class TableSlide(BaseModel):
 
 class ContentSection(BaseModel):
     """Content that can be placed in a section of a split slide."""
+
     type: Literal["bullet", "image", "table"]
-    
+
     # For bullet section
     points: Optional[List[BulletPoint]] = Field(default_factory=list)
-    
+
     # For image section
     url: Optional[str] = None
     alt: Optional[str] = None
-    
+
     # For table section
     headers: Optional[List[str]] = None
     rows: Optional[List[List[str]]] = None
@@ -53,7 +55,9 @@ class SplitSlide(BaseModel):
     type: Literal["split"] = "split"
     title: Optional[str] = None
     layout: Literal["left-right"] = "left-right"  # Future: could add more layouts
-    sections: List[ContentSection] = Field(min_items=2, max_items=2)  # Currently supports exactly 2 sections
+    sections: List[ContentSection] = Field(
+        min_items=2, max_items=2
+    )  # Currently supports exactly 2 sections
 
 
 # Update the presentation model to include all slide types
