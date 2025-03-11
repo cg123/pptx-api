@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentation Expired</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-top: 0;
+            color: #e63946;
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+        .sad-horse {
+            width: 200px;
+            height: 200px;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Presentation Expired</h1>
+        
+        <svg class="sad-horse" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Sad horse SVG -->
+            <g transform="translate(0,0) scale(0.8)">
+                <!-- Body -->
+                <ellipse cx="120" cy="130" rx="70" ry="35" fill="#8B4513"/>
+                
+                <!-- Neck -->
+                <path d="M70 110 Q 60 75 80 50" stroke="#8B4513" stroke-width="25" fill="none"/>
+                
+                <!-- Head -->
+                <ellipse cx="85" cy="40" rx="25" ry="15" fill="#8B4513"/>
+                
+                <!-- Ears -->
+                <ellipse cx="75" cy="30" rx="8" ry="12" fill="#8B4513" transform="rotate(-15, 75, 30)"/>
+                <ellipse cx="95" cy="30" rx="8" ry="12" fill="#8B4513" transform="rotate(15, 95, 30)"/>
+                
+                <!-- Nose -->
+                <path d="M85 40 Q 95 60 105 45" stroke="#8B4513" stroke-width="12" fill="none"/>
+                
+                <!-- Tail -->
+                <path d="M190 115 Q 200 100 195 85" stroke="#8B4513" stroke-width="8" fill="none"/>
+                
+                <!-- Legs -->
+                <rect x="80" y="145" width="10" height="40" fill="#8B4513"/>
+                <rect x="105" y="145" width="10" height="40" fill="#8B4513"/>
+                <rect x="135" y="145" width="10" height="40" fill="#8B4513"/>
+                <rect x="160" y="145" width="10" height="40" fill="#8B4513"/>
+                
+                <!-- Sad eyes -->
+                <ellipse cx="75" cy="35" rx="3" ry="5" fill="black"/>
+                <path d="M73 35 Q 75 38 77 35" stroke="black" stroke-width="1" fill="none"/>
+                
+                <ellipse cx="95" cy="35" rx="3" ry="5" fill="black"/>
+                <path d="M93 35 Q 95 38 97 35" stroke="black" stroke-width="1" fill="none"/>
+                
+                <!-- Tear drop -->
+                <path d="M78 40 Q 79 42 80 47" stroke="#1E90FF" stroke-width="2" fill="#1E90FF"/>
+            </g>
+        </svg>
+        
+        <p>Sorry, this presentation has expired or doesn't exist.</p>
+        <p>Presentations are automatically deleted after 24 hours.</p>
+        <p>Please generate a new presentation if you need access.</p>
+    </div>
+</body>
+</html>

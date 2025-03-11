@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException, Request, BackgroundTasks
-from fastapi.responses import StreamingResponse, JSONResponse
+from fastapi.responses import StreamingResponse, JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 import uvicorn
 import os
 from pathlib import Path
@@ -20,6 +21,10 @@ app = FastAPI(
 # Create files directory if not exists for static file serving
 files_dir = Path(__file__).parent / "storage" / "files"
 files_dir.mkdir(exist_ok=True)
+
+# Set up templates
+templates_dir = Path(__file__).parent / "templates"
+templates = Jinja2Templates(directory=str(templates_dir))
 
 # Mount static files directory
 app.mount("/presentations", StaticFiles(directory=str(files_dir)), name="presentations")
@@ -60,12 +65,16 @@ def generate_pptx(request: Request, presentation: Presentation):
 
 
 @app.get("/download/{presentation_id}")
-def download_presentation(presentation_id: str):
+def download_presentation(request: Request, presentation_id: str):
     # Get the presentation from storage
     result = PresentationStorage.get_presentation(presentation_id)
     
     if not result:
-        raise HTTPException(status_code=404, detail="Presentation not found")
+        # Return the expired presentation page with the sad horse
+        return templates.TemplateResponse(
+            "expired.html",
+            {"request": request}
+        )
     
     pptx_bytes, metadata = result
     filename = metadata.get("filename", f"{presentation_id}.pptx")
