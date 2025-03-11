@@ -1,0 +1,20 @@
+[project]
+name = "pptx-api-node"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Charles Goddard",email = "chargoddard@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "python-pptx (>=1.0.2,<2.0.0)",
+    "fastapi (>=0.115.11,<0.116.0)",
+    "uvicorn (>=0.34.0,<0.35.0)",
+    "pydantic (>=2.10.6,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

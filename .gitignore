@@ -1,0 +1,58 @@
+[200~# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+VENV/
+*/.venv
+*/.env
+.python-version
+
+# Distribution / packaging
+.eggs/
+*.egg-info/
+dist/
+build/
+wheels/
+*.egg
+MANIFEST
+
+# PyInstaller
+**/__pycache__
+**/*.pyc
+*.spec
+*.exe
+*.dist
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+htmlcov/
+.tox/
+tox/
+pytestresults.xml
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
+*.vscode/

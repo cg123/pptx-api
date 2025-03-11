@@ -1,0 +1,61 @@
+{
+  "slides": [
+    {
+      "type": "title",
+      "title": "Sample Presentation",
+      "subtitle": "Created with PPTX API"
+    },
+    {
+      "type": "bullet",
+      "title": "Key Features",
+      "points": [
+        {
+          "text": "Generate presentations programmatically",
+          "level": 0,
+          "children": [
+            {
+              "text": "Perfect for automated reporting",
+              "level": 1
+            },
+            {
+              "text": "Integration with existing systems",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "text": "Simple JSON schema",
+          "level": 0,
+          "children": [
+            {
+              "text": "Easy to understand",
+              "level": 1
+            },
+            {
+              "text": "Flexible and extensible",
+              "level": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "bullet",
+      "title": "Future Enhancements",
+      "points": [
+        {
+          "text": "Support for more slide types",
+          "level": 0
+        },
+        {
+          "text": "Custom themes and styling",
+          "level": 0
+        },
+        {
+          "text": "Image embedding",
+          "level": 0
+        }
+      ]
+    }
+  ]
+}
