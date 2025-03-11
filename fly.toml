@@ -20,3 +20,12 @@ primary_region = 'lax'
   memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
+
+[checks]
+  [checks.http_status]
+    method = "GET"
+    type = "http"
+    path = "/status"
+    interval = "120s"
+    timeout = "10s"
+    grace_period = "30s"
