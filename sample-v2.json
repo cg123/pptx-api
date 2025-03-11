@@ -1,0 +1,119 @@
+{
+  "slides": [
+    {
+      "type": "title",
+      "title": "Presentation API - V2 Features",
+      "subtitle": "Images, Tables and Split Layouts"
+    },
+    {
+      "type": "bullet",
+      "title": "Simplified Bullet Points",
+      "points": [
+        {
+          "text": "First level bullet",
+          "children": [
+            {
+              "text": "Second level bullet",
+              "children": [
+                {
+                  "text": "Third level bullet"
+                }
+              ]
+            },
+            {
+              "text": "Another second level"
+            }
+          ]
+        },
+        {
+          "text": "Another first level bullet"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "title": "Image Slide Example",
+      "url": "https://cdn.sanity.io/images/4zrzovbb/website/30228572467f5d42ca56ce8d6418071a95b35dc7-1425x1992.png",
+      "alt": "An example placeholder image 1425x1992"
+    },
+    {
+      "type": "table",
+      "title": "Data Table Example",
+      "headers": ["Name", "Position", "Department", "Score"],
+      "rows": [
+        ["John Smith", "Senior Developer", "Engineering", "95/100"],
+        ["Jane Doe", "Product Manager", "Product", "98/100"],
+        ["Bob Johnson", "UX Designer", "Design", "92/100"],
+        ["Alice Williams", "Data Scientist", "Analytics", "97/100"]
+      ]
+    },
+    {
+      "type": "split",
+      "title": "Split Layout - Bullets and Image",
+      "layout": "left-right",
+      "sections": [
+        {
+          "type": "bullet",
+          "points": [
+            {
+              "text": "Key feature one",
+              "children": [
+                {
+                  "text": "Subpoint detail"
+                }
+              ]
+            },
+            {
+              "text": "Key feature two"
+            },
+            {
+              "text": "Key feature three"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "url": "https://via.placeholder.com/500x400?text=Right+Side+Image",
+          "alt": "Supporting visual"
+        }
+      ]
+    },
+    {
+      "type": "split",
+      "title": "Split Layout - Table and Bullets",
+      "layout": "left-right",
+      "sections": [
+        {
+          "type": "table",
+          "headers": ["Quarter", "Revenue"],
+          "rows": [
+            ["Q1", "$1.2M"],
+            ["Q2", "$1.5M"],
+            ["Q3", "$1.8M"],
+            ["Q4", "$2.1M"]
+          ]
+        },
+        {
+          "type": "bullet",
+          "points": [
+            {
+              "text": "Revenue increased 75% YoY"
+            },
+            {
+              "text": "Q4 showed strongest growth",
+              "children": [
+                {
+                  "text": "New product launch"
+                },
+                {
+                  "text": "Holiday season boost"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "filename": "v2-features-demo.pptx"
+}

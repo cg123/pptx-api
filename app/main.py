@@ -26,8 +26,9 @@ files_dir.mkdir(exist_ok=True)
 templates_dir = Path(__file__).parent / "templates"
 templates = Jinja2Templates(directory=str(templates_dir))
 
-# Mount static files directory
+# Mount static directories
 app.mount("/presentations", StaticFiles(directory=str(files_dir)), name="presentations")
+app.mount("/static", StaticFiles(directory=str(Path(__file__).parent / "static")), name="static")
 
 
 @app.get("/")
