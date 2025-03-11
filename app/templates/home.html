@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPTX API</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem;
+        }
+        h1 {
+            margin-top: 0;
+            color: #2E5EAA;
+        }
+        h2 {
+            color: #2E5EAA;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            font-size: 0.9rem;
+        }
+        .api-example {
+            margin: 2rem 0;
+        }
+        .pptx-icon {
+            width: 120px;
+            height: 120px;
+            margin: 1rem 0;
+        }
+        .endpoints {
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+        .endpoint {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .method {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background-color: #3498db;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PPTX API</h1>
+        
+        <!-- PowerPoint icon as SVG -->
+        <svg class="pptx-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="2" fill="#D04423" />
+            <path d="M7 5.5H13.5C15.5 5.5 17 7 17 9C17 11 15.5 12.5 13.5 12.5H9.5V18.5H7V5.5Z" fill="white" />
+            <path d="M9.5 7.5V10.5H13C13.8 10.5 14.5 9.8 14.5 9C14.5 8.2 13.8 7.5 13 7.5H9.5Z" fill="#D04423" />
+        </svg>
+        
+        <p>Welcome to the PowerPoint Presentation Generation API</p>
+        <p>This service allows you to generate PowerPoint presentations from JSON data with a simple API request.</p>
+        
+        <h2>API Endpoints</h2>
+        
+        <div class="endpoints">
+            <div class="endpoint">
+                <span class="method">POST</span>
+                <code>/generate-pptx</code>
+                <p>Generate a PowerPoint presentation from JSON data and receive a download link</p>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method">GET</span>
+                <code>/download/{presentation_id}</code>
+                <p>Download a previously generated presentation</p>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method">GET</span>
+                <code>/status</code>
+                <p>API health check endpoint</p>
+            </div>
+        </div>
+        
+        <div class="api-example">
+            <h2>Example Request</h2>
+            <pre><code>{
+  "slides": [
+    {
+      "type": "title",
+      "title": "Presentation Title",
+      "subtitle": "Optional Subtitle"
+    },
+    {
+      "type": "bullet",
+      "title": "Bullet Points Slide",
+      "points": [
+        {
+          "text": "First level bullet",
+          "level": 0,
+          "children": [
+            {
+              "text": "Second level bullet",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "text": "Another bullet point",
+          "level": 0
+        }
+      ]
+    }
+  ],
+  "filename": "example-presentation.pptx"
+}</code></pre>
+        </div>
+    </div>
+</body>
+</html>

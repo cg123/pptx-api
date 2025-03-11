@@ -31,8 +31,23 @@ app.mount("/presentations", StaticFiles(directory=str(files_dir)), name="present
 
 
 @app.get("/")
-def read_root():
-    return {"status": "ok", "message": "PPTX API is running"}
+def read_root(request: Request):
+    """Render the home page with API documentation."""
+    return templates.TemplateResponse(
+        "home.html",
+        {"request": request}
+    )
+
+
+@app.get("/status")
+def health_check():
+    """Health check endpoint for liveness probes."""
+    return {
+        "status": "ok",
+        "service": "pptx-api",
+        "version": "0.1.0",
+        "timestamp": datetime.now().isoformat()
+    }
 
 
 @app.post("/generate-pptx")
