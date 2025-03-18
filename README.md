@@ -4,7 +4,6 @@ A simple API for generating PowerPoint presentations from JSON schemas.
 
 ## Features
 
-Version 2.0 features:
 - Create title slides with optional subtitles
 - Create bullet point slides with multi-level lists
 - Create image slides from URLs with automatic broken image handling

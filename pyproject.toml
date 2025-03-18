@@ -1,9 +1,9 @@
 [project]
-name = "pptx-api-node"
+name = "pptx-api"
 version = "0.1.0"
 description = "API for generating PowerPoint presentations from JSON schema"
 authors = [
-    {name = "Charles Goddard",email = "chargoddard@gmail.com"}
+    {name = "Charles Goddard", email = "chargoddard@gmail.com"}
 ]
 requires-python = ">=3.10"
 package-mode = false

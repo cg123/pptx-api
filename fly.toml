@@ -1,9 +1,4 @@
-# fly.toml app configuration file generated for pptx-api-node on 2025-03-10T19:28:30-07:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
-app = 'pptx-api-node'
+app = 'pptx-api'
 primary_region = 'lax'
 
 [build]
