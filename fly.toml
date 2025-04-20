@@ -1,4 +1,4 @@
-app = 'pptx-api'
+app = 'pptx-api-node'
 primary_region = 'lax'
 
 [build]

@@ -188,6 +188,13 @@ def insert_bulleted_list(
     for point in points:
         add_bullet_point(text_frame, point, 0)
 
+    try:
+        text_frame.fit_text(max_size=24)
+    except Exception as e:
+        error_message = f"Failed to fit text: {str(e)}"
+        logger.error(error_message, exc_info=True)
+        add_presenter_notes(_slide, error_message)
+
 
 def add_bullet_point(text_frame: TextFrame, point: BulletPoint, current_level: int):
     """Recursively add bullet points with proper indentation."""
