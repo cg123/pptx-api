@@ -2,6 +2,8 @@
 
 A simple API for generating PowerPoint presentations from JSON schemas.
 
+Claude wrote this. Thanks Claude.
+
 ## Features
 
 - Create title slides with optional subtitles
